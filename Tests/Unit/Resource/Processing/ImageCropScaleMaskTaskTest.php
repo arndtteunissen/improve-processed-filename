@@ -31,7 +31,7 @@ class TinifyCompressorTest extends UnitTestCase
         $fileMock->expects($this->once())->method('getNameWithoutExtension')->willReturn('My-test-file');
         $fileMock->expects($this->once())->method('getUid')->willReturn('1');
         $fileMock->expects($this->once())->method('getModificationTime')->willReturn('1521931104');
-        $fileMock->expects($this->once())->method('getExtension')->willReturn('jpg');
+        $fileMock->expects($this->any())->method('getExtension')->willReturn('jpg');
 
         $processedFileMock = $this->getAccessibleMock(ProcessedFile::class, ['getOriginalFile'], [], '', false);
         $processedFileMock->expects($this->once())->method('getOriginalFile')->willReturn($fileMock);
