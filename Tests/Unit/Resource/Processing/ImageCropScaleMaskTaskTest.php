@@ -19,7 +19,6 @@ use TYPO3\CMS\Core\Resource\ProcessedFile;
 
 class TinifyCompressorTest extends \PHPUnit_Framework_TestCase
 {
-
     /**
      * Tests if the new filename is generated correctly.
      *
