@@ -25,7 +25,7 @@
   },
   "require-dev": {
     "friendsofphp/php-cs-fixer": "^2.10",
-    "phpunit/phpunit": "^5.0"
+    "phpunit/phpunit": "^4.8"
   },
   "autoload": {
     "psr-4": {
