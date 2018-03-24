@@ -1,0 +1,49 @@
+{
+  "name": "arndtteunissen/improve-processed-filename",
+  "type": "typo3-cms-extension",
+  "description": "This package removes the csm prefix from generated fal files.",
+  "license": ["GPL-2.0-or-later"],
+  "keywords": [
+    "TYPO3 CMS",
+    "fal"
+  ],
+  "homepage": "https://github.com/arndtteunissen/improve-processed-filename",
+  "support": {
+    "issues": "https://github.com/arndtteunissen/improve-processed-filename/issues"
+  },
+  "authors": [
+    {
+      "name": "Tim Schreiner",
+      "email" :"schreiner@arndtteunissen.de",
+      "role": "Developer"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "php": ">=5.6 <7.3",
+    "typo3/cms-core": "^7.6 || ^8.7"
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^2.10",
+    "phpunit/phpunit": "^5.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Arndtteunissen\\ImproveProcessedFilename\\": "Classes"
+    }
+  },
+  "replace": {
+    "improve_processed_filename": "self.version",
+    "typo3-ter/improve-processed-filename": "self.version"
+  },
+  "config": {
+    "vendor-dir": ".Build/vendor",
+    "bin-dir": ".Build/bin"
+  },
+  "extra": {
+    "typo3/cms": {
+      "cms-package-dir": "{$vendor-dir}/typo3/cms",
+      "web-dir": ".Build/Web"
+    }
+  }
+}
