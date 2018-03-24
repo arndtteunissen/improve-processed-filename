@@ -26,13 +26,13 @@ class TinifyCompressorTest extends \PHPUnit_Framework_TestCase
      */
     public function testGeneratedFileExtension()
     {
-        $fileMock = $this->createMock(File::class, ['getNameWithoutExtension', 'getUid', 'getModificationTime', 'getExtension']);
+        $fileMock = $this->getMock(File::class, ['getNameWithoutExtension', 'getUid', 'getModificationTime', 'getExtension'], [], '', false);
         $fileMock->expects($this->once())->method('getNameWithoutExtension')->willReturn('My-test-file');
         $fileMock->expects($this->once())->method('getUid')->willReturn('1');
         $fileMock->expects($this->once())->method('getModificationTime')->willReturn('1521931104');
         $fileMock->expects($this->once())->method('getExtension')->willReturn('jpg');
 
-        $processedFileMock = $this->createMock(ProcessedFile::class, ['getOriginalFile']);
+        $processedFileMock = $this->getMock(ProcessedFile::class, ['getOriginalFile'], [], '', false);
         $processedFileMock->expects($this->once())->method('getOriginalFile')->willReturn($fileMock);
 
         $task = new ImageCropScaleMaskTask($processedFileMock, []);
