@@ -14,10 +14,11 @@ namespace Arndtteunissen\ImproveProcessedFilename\Tests\Unit\Resource\Processing
  */
 
 use Arndtteunissen\ImproveProcessedFilename\Resource\Processing\ImageCropScaleMaskTask;
+use Nimut\TestingFramework\TestCase\UnitTestCase;
 use TYPO3\CMS\Core\Resource\File;
 use TYPO3\CMS\Core\Resource\ProcessedFile;
 
-class TinifyCompressorTest extends \PHPUnit_Framework_TestCase
+class TinifyCompressorTest extends UnitTestCase
 {
     /**
      * Tests if the new filename is generated correctly.
@@ -26,13 +27,13 @@ class TinifyCompressorTest extends \PHPUnit_Framework_TestCase
      */
     public function testGeneratedFileExtension()
     {
-        $fileMock = $this->getMock(File::class, ['getNameWithoutExtension', 'getUid', 'getModificationTime', 'getExtension'], [], '', false);
+        $fileMock = $this->getAccessibleMock(File::class, ['getNameWithoutExtension', 'getUid', 'getModificationTime', 'getExtension'], [], '', false);
         $fileMock->expects($this->once())->method('getNameWithoutExtension')->willReturn('My-test-file');
         $fileMock->expects($this->once())->method('getUid')->willReturn('1');
         $fileMock->expects($this->once())->method('getModificationTime')->willReturn('1521931104');
         $fileMock->expects($this->once())->method('getExtension')->willReturn('jpg');
 
-        $processedFileMock = $this->getMock(ProcessedFile::class, ['getOriginalFile'], [], '', false);
+        $processedFileMock = $this->getAccessibleMock(ProcessedFile::class, ['getOriginalFile'], [], '', false);
         $processedFileMock->expects($this->once())->method('getOriginalFile')->willReturn($fileMock);
 
         $task = new ImageCropScaleMaskTask($processedFileMock, []);
