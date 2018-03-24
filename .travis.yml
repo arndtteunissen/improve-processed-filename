@@ -51,3 +51,8 @@ script:
     echo;
     echo "Running PHP Coding Standards Fixer checks";
     .Build/bin/php-cs-fixer fix --config=.php_cs.dist -v --dry-run --using-cache=no --diff --diff-format=udiff
+
+  - >
+    echo;
+    echo "Running unit tests";
+    .Build/bin/phpunit --color -c Tests/Build/UnitTests.xml Tests/Unit/Resource/
